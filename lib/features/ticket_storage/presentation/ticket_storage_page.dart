@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:surf_flutter_study_jam_2023/features/ticket_storage/logic/tickets/tickets_cubit.dart';
+import 'package:surf_flutter_study_jam_2023/features/ticket_storage/presentation/pdf_view_screen.dart';
 import 'package:surf_flutter_study_jam_2023/features/ticket_storage/presentation/ticket_list_item.dart';
 import 'package:surf_flutter_study_jam_2023/features/ticket_storage/presentation/widgets/bottom_sheet.dart';
 
@@ -69,7 +71,19 @@ class _TicketStoragePageState extends State<TicketStoragePage> {
                       onDismissed: (direction) {
                         ticketsCubit.deleteTicket(tickets[index].id!);
                       },
-                      child: TicketListItem(ticket: tickets[index]),
+                      child: InkWell(child: TicketListItem(ticket: tickets[index]), onTap: (){
+                        print('file path ${tickets[index].filePath}');
+                        if (tickets[index].filePath != null) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  PDFScreen(path: tickets[index].filePath),
+                            ),
+                          );
+                        }
+
+                      }),
                     );
                   },
                   itemCount: tickets.length,
