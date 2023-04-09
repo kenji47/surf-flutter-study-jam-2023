@@ -10,8 +10,13 @@ class FileDownloaderCubit extends Cubit<FileDownloaderState> {
   late final FileDownloader _fileDownloader =
       getIt<FileDownloader>();
   late final DirectoriesHandler _directoriesHandler = getIt<DirectoriesHandler>();
-
-  FileDownloaderCubit() : super(FileDownloaderState()) {
+  final bool downloaded;
+  FileDownloaderCubit(this.downloaded) : super(FileDownloaderState()) {
+    if (downloaded) {
+      emit(state.copyWith(
+        status: FileDownloaderStatus.completed,
+      ));
+    }
   }
 
 
@@ -67,19 +72,21 @@ class FileDownloaderCubit extends Cubit<FileDownloaderState> {
           }
         },
       );
-      // todo update ticket and save
       emit(state.copyWith(
         status: FileDownloaderStatus.completed,
+        filePath: _fileName,
       ));
     } on DioError catch (e) {
       // do nothing when canceled
       if (e.type == DioErrorType.cancel) {
         return;
+      } else {
+        emit(state.copyWith(
+          status: FileDownloaderStatus.failure,
+          errorMessage: 'api error', // todo handle error: API errors
+        ));
       }
-      emit(state.copyWith(
-        status: FileDownloaderStatus.failure,
-        errorMessage: 'api error', // todo handle error: API errors
-      ));
+
     }
   }
 

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:surf_flutter_study_jam_2023/features/ticket_storage/logic/file_downloader/file_downloader_cubit.dart';
 import 'package:surf_flutter_study_jam_2023/features/ticket_storage/logic/file_downloader/file_downloader_state.dart';
 import 'package:surf_flutter_study_jam_2023/features/ticket_storage/logic/model/ticket.dart';
+import 'package:surf_flutter_study_jam_2023/features/ticket_storage/logic/tickets/tickets_cubit.dart';
 
 class TicketListItem extends StatelessWidget {
   final Ticket ticket;
@@ -11,10 +12,21 @@ class TicketListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TicketsCubit ticketsCubit = BlocProvider.of<TicketsCubit>(context);
     return BlocProvider(
-      create: (_) => FileDownloaderCubit(),
+      create: (_) => FileDownloaderCubit(ticket.downloaded),
       child: Builder(builder: (context) {
-        return BlocBuilder<FileDownloaderCubit, FileDownloaderState>(
+        return BlocConsumer<FileDownloaderCubit, FileDownloaderState>(
+          listener: (prev, current) {
+            if (current.status == FileDownloaderStatus.completed) {
+              ticketsCubit.updateTicket(
+                ticket.copyWith(
+                  downloaded: true,
+                  filePath: current.filePath,
+                ),
+              );
+            }
+          },
           builder: (context, state) {
             return Container(
               decoration: BoxDecoration(
