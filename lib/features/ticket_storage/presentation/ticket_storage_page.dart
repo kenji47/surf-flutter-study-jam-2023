@@ -78,7 +78,7 @@ class _TicketStoragePageState extends State<TicketStoragePage> {
                             context,
                             MaterialPageRoute(
                               builder: (context) =>
-                                  PDFScreen(path: tickets[index].filePath),
+                                  PDFScreen(path: tickets[index].filePath, title: tickets[index].name,),
                             ),
                           );
                         }
