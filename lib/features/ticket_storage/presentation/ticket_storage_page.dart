@@ -71,19 +71,22 @@ class _TicketStoragePageState extends State<TicketStoragePage> {
                       onDismissed: (direction) {
                         ticketsCubit.deleteTicket(tickets[index].id!);
                       },
-                      child: InkWell(child: TicketListItem(ticket: tickets[index]), onTap: (){
-                        print('file path ${tickets[index].filePath}');
-                        if (tickets[index].filePath != null) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  PDFScreen(path: tickets[index].filePath, title: tickets[index].name,),
-                            ),
-                          );
-                        }
-
-                      }),
+                      child: InkWell(
+                          child: TicketListItem(ticket: tickets[index]),
+                          onTap: () {
+                            print('file path ${tickets[index].filePath}');
+                            if (tickets[index].filePath != null) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PDFScreen(
+                                    path: tickets[index].filePath,
+                                    title: tickets[index].name,
+                                  ),
+                                ),
+                              );
+                            }
+                          }),
                     );
                   },
                   itemCount: tickets.length,
