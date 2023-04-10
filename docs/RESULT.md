@@ -20,20 +20,10 @@ Url считается валидным если:
 <br/><br/>
 
 ## Прогресс загрузки файла
-<p align="center">
-<video width="320"  controls>
-  <source src="./assets/pdf_progress.mp4" >
-</video>
-</p>
-<br/><br/>
+https://user-images.githubusercontent.com/6748047/230838769-e07f093a-94be-4259-8d39-3816675c01fc.mp4
 
 ## Отмена загрузки
-<p align="center">
-<video width="320" controls>
-  <source src="./assets/cancel_download.mp4" >
-</video>
-</p>
-<br/><br/>
+https://user-images.githubusercontent.com/6748047/230838698-9b2163ad-3d4c-4872-b1a6-1e464922b43c.mp4
 
 ## Отображение снекбара при добавлении билета
 <p align="center">
@@ -42,22 +32,9 @@ Url считается валидным если:
 <br/><br/>
 
 ## Удаление билета через свайп в сторону (Dismissable)
-<p align="center">
-<video width="320" controls>
-  <source src="./assets/delete.mp4" >
-</video>
-</p>
-<br/><br/>
+https://user-images.githubusercontent.com/6748047/230838523-c1de7e15-ad8e-4a70-a9dd-7a94ea201f4e.mp4
 
 ## Просмотр pdf
-<p align="center">
-<video width="320" controls>
-  <source src="./assets/view_pdf.mp4" >
-</video>
-</p>
+https://user-images.githubusercontent.com/6748047/230838446-c64044d9-21f5-4a7c-9be1-e0e564279fce.mp4
 
-<p align="center">
-<video width="320" controls>
-  <source src="https://www.veed.io/view/fc4823e0-54f0-4149-b526-a8589cd1bed8?sharingWidget=true&panel=share" >
-</video>
-</p>
+
