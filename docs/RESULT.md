@@ -1,6 +1,10 @@
 # Результаты
 
 Использован flutter_bloc для стейт-менеджмента и get_it для инжектирования зависимостей.
+<p align="center">
+<img src="./assets/classes.png"/>
+</p>
+<br/><br/>
 
  ## Валидация pdf url ссылки в BottomSheet
 Url считается валидным если:
