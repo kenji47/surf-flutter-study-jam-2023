@@ -55,3 +55,9 @@ Url считается валидным если:
   <source src="./assets/view_pdf.mp4" >
 </video>
 </p>
+
+<p align="center">
+<video width="320" controls>
+  <source src="https://www.veed.io/view/fc4823e0-54f0-4149-b526-a8589cd1bed8?sharingWidget=true&panel=share" >
+</video>
+</p>
