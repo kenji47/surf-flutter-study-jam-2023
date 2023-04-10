@@ -62,6 +62,7 @@ class FileDownloaderCubit extends Cubit<FileDownloaderState> {
         fileName: _fileName,
         onProgress: (received, total) {
           if (total != -1) {
+            print('$received $total');
             final progress = received / total;
             final progressString = "${(progress * 100).toStringAsFixed(0)}%";
             emit(state.copyWith(
